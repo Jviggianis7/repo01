@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+<title>Registro</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapsed" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#" th:href="@{/}">Registro e
+					inicio de sesión</a>
+			</div>
+		</div>
+	</nav>
+
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div th:if=${param.successful}></div>
+				<div class="alert alert-info">Se ha registrado exitosamente!!!
+				</div>
+				<h1>Registrate</h1>
+				<form th:action="@{registrer}" method="post" th:object="${user}">
+					<div class="form-group">
+						<label class="form-control" for="nombre">Nombre completo:
+						</label> <input id="nombre" class="form-control" th:field="*{nombre}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="form-control" for="usuario">Usuario: </label> <input
+							id="user" class="form-control" th:field="*{usuario}" required
+							autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<label class="form-control" for="password">contraseña </label> <input
+							id="password" class="form-control" th:field="*{password}"
+							required autofocus="autofocus">
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-success">Registrar</button>
+						<span>si estas registrado <a>inicia sesión aquí</a></span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous">
+		
+	</script>
+</body>
+</html>
